@@ -20,7 +20,10 @@ LIBC =	ft_isalpha.c\
 		ft_strlcat.c\
 		ft_toupper.c\
 		ft_tolower.c\
-		ft_strchr.c
+		ft_strchr.c\
+		ft_strrchr.c\
+		ft_strncmp.c\
+		ft_memchr.c
 
 
 SRC = $(LIBC)
