@@ -6,7 +6,7 @@
 /*   By: dgorceac <dgorceac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:49:44 by dgorceac          #+#    #+#             */
-/*   Updated: 2025/04/08 10:55:16 by dgorceac         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:21:04 by dgorceac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int	ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
-char * strdup( const char * source );
+char * ft_strdup( const char * source );
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
