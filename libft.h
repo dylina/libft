@@ -6,7 +6,7 @@
 /*   By: dgorceac <dgorceac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:49:44 by dgorceac          #+#    #+#             */
-/*   Updated: 2025/04/10 14:21:04 by dgorceac         ###   ########.fr       */
+/*   Updated: 2025/04/11 16:42:11 by dgorceac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define LIBFT_H
 
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -43,5 +44,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char * ft_strdup( const char * source );
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif
