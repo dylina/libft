@@ -6,7 +6,7 @@
 /*   By: dgorceac <dgorceac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:23:33 by dgorceac          #+#    #+#             */
-/*   Updated: 2025/04/12 17:39:05 by dgorceac         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:05:17 by dgorceac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,47 @@
 
 int	ft_intlen(int n)
 {
-	int i;
+	int	len;
 
-	i = 1;
-	while (n > 9)
+	len = 1;
+	while (n / 10)
 	{
+		len++;
 		n = n / 10;
-		i++;
 	}
-	return (i);
+	return (len);
 }
+
 char	*ft_itoa(int n)
 {
-	char	*new;
-	int	sign;
-	int l;
-	int i;
+	char	*str;
+	long	nb;
+	int		len;
+	int		negative;
 
-	i = 0;
-	l = ft_intlen(n);
-	sign = 0;
-	if (n <= -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (n < 0)
-	{
-		sign = 1;
-		n = n * -1;
-	}
-	new = (char *) malloc(sizeof(char) * (l + sign + 1));
-	if (!new)
+	nb = n;
+	negative = (nb < 0);
+	if (negative)
+		nb = -nb;
+	len = ft_intlen(nb) + negative;
+	str = malloc (sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	while (l != 0)
+	str[len] = '\0';
+	while (len--)
 	{
-		new[i] = n % 10 + '0';
-		i++;
+		str[len] = nb % 10 + '0';
+		nb = nb / 10;
 	}
-	return (new);
+	if (negative)
+		str[0] = '-';
+	return (str);
 }
-int	main(void)
-{
-	printf("%s", ft_itoa(10));
-	return (0);
-}
+// int	main(void)
+// {
+// 	printf("%s", ft_itoa(10));
+// 	printf("%s", ft_itoa(-42));
+// 	printf("%s", ft_itoa(0));
+// 	printf("%s", ft_itoa(-2147483649));
+// 	return (0);
+// }
