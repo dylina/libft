@@ -6,7 +6,7 @@
 /*   By: dgorceac <dgorceac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:03:38 by dgorceac          #+#    #+#             */
-/*   Updated: 2025/04/03 17:00:27 by dgorceac         ###   ########.fr       */
+/*   Updated: 2025/04/16 17:28:30 by dgorceac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)&s[i]);
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i--;
 	}
