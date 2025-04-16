@@ -6,61 +6,63 @@
 /*   By: dgorceac <dgorceac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 10:32:49 by dgorceac          #+#    #+#             */
-/*   Updated: 2025/04/15 17:48:47 by dgorceac         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:46:43 by dgorceac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	wordcount(char *s, char c)
+static size_t	wordcount(char const *s, char c)
 {
-	int	i;
-	int count;
+	size_t	count;
 
+	if (!*s)
+		return (0);
 	count = 0;
-	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c && s[i + 1] != c || s[i] != c && i == 0)
+		while (*s == c)
+			s++;
+		if (*s)
 			count++;
-		i++;
+		while (*s != c && *s)
+			s++;
 	}
 	return (count);
-}
-int	lettercount(char *s, char c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c && s[i + 1] != c || s[i] != c && i == 0)
-			i++;
-	}
-	return (i);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int	i;
+	size_t	wordlen;
+	int		i;
 	char	**str;
 
 	i = 0;
-	if (!s)
+	str = (char **)malloc(sizeof(char *) * (wordcount(s, c) + 1));
+	if (!s || !str)
 		return (NULL);
-	str = malloc(sizeof(char *) * (wordcount(s, c) + 1));
-	if (!str)
-		return (NULL);
-	while (i < wordcount(s, c))
+	while (*s)
 	{
-		*str[i] = malloc(sizeof(char) * (lettercount(s, c) + 1));
+		while (*s == c && *s)
+			s++;
+		if (*s)
+		{
+			if (!ft_strchr(s, c))
+				wordlen = ft_strlen(s);
+			else
+				wordlen = ft_strchr(s, c) - s;
+			str[i++] = ft_substr(s, 0, wordlen);
+			s = s + wordlen;
+		}
 	}
 	str[i] = NULL;
 	return (str);
 }
-int	main(void)
-{
-	printf("%d\n", wordcount("salu vcgd   jndns shsy", ' '));
-
-	return (0);
-}
+// int main(void)
+// {
+//     char **result = ft_split("salu vcgd", ' ');
+// 	int i = 0;
+//     while (result[i])
+//         printf("%s\n", result[i++]);
+//     return 0;
+// }
