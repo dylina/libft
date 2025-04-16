@@ -37,8 +37,9 @@ LIBC =	ft_isalpha.c\
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\
 		ft_strmapi.c\
-		ft_striteri.c
-
+		ft_striteri.c\
+		ft_itoa.c\
+		ft_split.c
 
 SRC = $(LIBC)
 
@@ -57,3 +58,5 @@ fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
+
+.PHONY: all clean fclean re
