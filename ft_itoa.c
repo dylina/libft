@@ -6,13 +6,13 @@
 /*   By: dgorceac <dgorceac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:23:33 by dgorceac          #+#    #+#             */
-/*   Updated: 2025/04/15 10:05:17 by dgorceac         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:48:10 by dgorceac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
 	int	len;
 
